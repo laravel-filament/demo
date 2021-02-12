@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\OrderResource;
 
 use App\Filament\Resources\OrderResource;
-use Filament\Actions\EditResourceRecord;
+use Filament\Actions\EditRecord;
 
-class EditOrder extends EditResourceRecord
+class EditOrder extends EditRecord
 {
     protected static $resource = OrderResource::class;
 }

@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\ProductResource;
 
 use App\Filament\Resources\ProductResource;
-use Filament\Actions\EditResourceRecord;
+use Filament\Actions\EditRecord;
 
-class EditProduct extends EditResourceRecord
+class EditProduct extends EditRecord
 {
     protected static $resource = ProductResource::class;
 }

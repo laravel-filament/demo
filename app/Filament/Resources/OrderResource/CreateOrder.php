@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\OrderResource;
 
 use App\Filament\Resources\OrderResource;
-use Filament\Actions\CreateResourceRecord;
+use Filament\Actions\CreateRecord;
 
-class CreateOrder extends CreateResourceRecord
+class CreateOrder extends CreateRecord
 {
     protected static $resource = OrderResource::class;
 }
