@@ -43,7 +43,8 @@ class ProductResource extends Resource
                     ->required(),
             ]),
             Fields\RichEditor::make('record.description')
-                ->placeholder('Description'),
+                ->placeholder('Description')
+                ->attachmentDirectory('product-attachments'),
             Fields\Tags::make('record.tags')
                 ->placeholder('Tags'),
         ];
