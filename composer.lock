@@ -822,12 +822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/filament.git",
-                "reference": "b54b9f17c968a9ed9036084a289c22a42f580a1d"
+                "reference": "dde74b172164c6ce2b08608264b3f14f860bcdfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/filament/zipball/b54b9f17c968a9ed9036084a289c22a42f580a1d",
-                "reference": "b54b9f17c968a9ed9036084a289c22a42f580a1d",
+                "url": "https://api.github.com/repos/laravel-filament/filament/zipball/dde74b172164c6ce2b08608264b3f14f860bcdfd",
+                "reference": "dde74b172164c6ce2b08608264b3f14f860bcdfd",
                 "shasum": ""
             },
             "require": {
@@ -855,16 +855,22 @@
                 "thomaswelton/laravel-gravatar": "^1.0",
                 "watson/active": "^6.0"
             },
+            "replace": {
+                "filament/forms": "self.version",
+                "filament/support": "self.version"
+            },
             "require-dev": {
-                "mockery/mockery": "^1.4.2",
                 "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^9.5"
+                "phpunit/phpunit": "^9.5",
+                "symplify/monorepo-builder": "^9.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Filament\\FilamentServiceProvider"
+                        "Filament\\FilamentServiceProvider",
+                        "Filament\\FormsServiceProvider",
+                        "Filament\\SupportServiceProvider"
                     ],
                     "aliases": {
                         "FilamentManager": "Filament\\Filament"
@@ -876,8 +882,12 @@
                     "src/helpers.php"
                 ],
                 "psr-4": {
-                    "Filament\\": "src/",
-                    "Filament\\Database\\Factories\\": "database/factories/"
+                    "Filament\\": [
+                        "packages/forms/src",
+                        "packages/support/src",
+                        "src"
+                    ],
+                    "Filament\\Database\\Factories\\": "database/factories"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -885,16 +895,11 @@
                 "MIT"
             ],
             "description": "Core package for Filament - a lightweight admin panel for the TALL stack.",
-            "keywords": [
-                "laravel",
-                "livewire",
-                "tailwind"
-            ],
             "support": {
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament/tree/develop"
             },
-            "time": "2021-02-14T02:32:20+00:00"
+            "time": "2021-02-14T21:43:37+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",

@@ -47,6 +47,9 @@ class ProductResource extends Resource
                 ->attachmentDirectory('product-attachments'),
             Fields\Tags::make('record.tags')
                 ->placeholder('Tags'),
+            Fields\Fieldset::make()->fields([
+                Fields\File::make('record.image')->image(),
+            ]),
         ];
     }
 
