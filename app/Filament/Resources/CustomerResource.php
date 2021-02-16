@@ -15,6 +15,16 @@ class CustomerResource extends Resource
 
     public static $model = Models\Customer::class;
 
+    protected static $titleOptions = [
+        'mr' => 'Mr',
+        'mrs' => 'Mrs',
+        'master' => 'Master',
+        'miss' => 'Miss',
+        'ms' => 'Ms',
+        'dr' => 'Dr',
+        'professor' => 'Professor',
+    ];
+
     public static function authorization()
     {
         return [
@@ -25,16 +35,23 @@ class CustomerResource extends Resource
     public static function columns()
     {
         return [
-            Columns\Text::make('title')->sortable(),
-            Columns\Text::make('name')->searchable()->sortable(),
+            Columns\Text::make('title')
+                ->sortable()
+                ->options(static::$titleOptions),
+            Columns\Text::make('name')
+                ->searchable()
+                ->sortable()
+                ->primary(),
             Columns\Text::make('email')
                 ->searchable()
                 ->sortable()
                 ->url(fn($customer) => "mailto:$customer->email"),
             Columns\Text::make('phone')
                 ->searchable()
-                ->url(fn($customer) => "mailto:$customer->tel"),
-            Columns\Text::make('birthday')->sortable(),
+                ->url(fn($customer) => "tel:$customer->tel"),
+            Columns\Text::make('birthday')
+                ->sortable()
+                ->date(),
         ];
     }
 
@@ -44,15 +61,7 @@ class CustomerResource extends Resource
             Fields\Fieldset::make()->fields([
                 Fields\Select::make('title')
                     ->placeholder('Title')
-                    ->options([
-                        'mr' => 'Mr',
-                        'mrs' => 'Mrs',
-                        'master' => 'Master',
-                        'miss' => 'Miss',
-                        'ms' => 'Ms',
-                        'dr' => 'Dr',
-                        'professor' => 'Professor',
-                    ]),
+                    ->options(static::$titleOptions),
                 Fields\Text::make('name')
                     ->placeholder('Name')
                     ->autofocus()

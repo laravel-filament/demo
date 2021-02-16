@@ -25,7 +25,11 @@ class OrderResource extends Resource
     public static function columns()
     {
         return [
-            Columns\Text::make('customer.name')->searchable()->sortable(),
+            Columns\Text::make('customer.name')
+                ->searchable()
+                ->sortable()
+                ->primary(),
+            Columns\Text::make('created_at')->sortable(),
         ];
     }
 

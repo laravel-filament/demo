@@ -25,8 +25,14 @@ class ProductResource extends Resource
     public static function columns()
     {
         return [
-            Columns\Text::make('name')->searchable()->sortable(),
-            Columns\Text::make('price')->searchable()->sortable(),
+            Columns\Text::make('name')
+                ->searchable()
+                ->sortable()
+                ->primary(),
+            Columns\Text::make('price')
+                ->searchable()
+                ->sortable()
+                ->currency(),
         ];
     }
 

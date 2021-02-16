@@ -8,4 +8,6 @@ use Filament\Resources\Actions\ListRecords;
 class ListCustomers extends ListRecords
 {
     protected static $resource = CustomerResource::class;
+
+    protected static $title = 'Customers';
 }
