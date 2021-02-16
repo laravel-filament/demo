@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\ProductResource;
+namespace App\Filament\Resources\ProductResource\Actions;
 
 use App\Filament\Resources\ProductResource;
-use Filament\Actions\ListRecords;
+use Filament\Resources\Actions\ListRecords;
 
 class ListProducts extends ListRecords
 {

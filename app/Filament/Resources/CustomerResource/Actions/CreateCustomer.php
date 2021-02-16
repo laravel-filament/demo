@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\CustomerResource;
+namespace App\Filament\Resources\CustomerResource\Actions;
 
 use App\Filament\Resources\CustomerResource;
-use Filament\Actions\CreateRecord;
+use Filament\Resources\Actions\CreateRecord;
 
 class CreateCustomer extends CreateRecord
 {

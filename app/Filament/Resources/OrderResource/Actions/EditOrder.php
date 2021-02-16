@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\OrderResource;
+namespace App\Filament\Resources\OrderResource\Actions;
 
 use App\Filament\Resources\OrderResource;
-use Filament\Actions\EditRecord;
+use Filament\Resources\Actions\EditRecord;
 
 class EditOrder extends EditRecord
 {

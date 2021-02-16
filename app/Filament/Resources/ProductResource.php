@@ -2,11 +2,12 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\ProductResource\Actions;
 use App\Filament\Roles;
 use App\Models;
-use Filament\Forms\Fields;
 use Filament\Resource;
-use Filament\Tables\Columns;
+use Filament\Resources\Columns;
+use Filament\Resources\Fields;
 
 class ProductResource extends Resource
 {
@@ -33,23 +34,23 @@ class ProductResource extends Resource
     {
         return [
             Fields\Fieldset::make()->fields([
-                Fields\Text::make('record.name')
+                Fields\Text::make('name')
                     ->placeholder('Name')
                     ->autofocus()
                     ->required(),
-                Fields\Text::make('record.price')
+                Fields\Text::make('price')
                     ->placeholder('Price')
                     ->type('number')
                     ->min(0)
                     ->required(),
             ]),
-            Fields\RichEditor::make('record.description')
+            Fields\RichEditor::make('description')
                 ->placeholder('Description')
                 ->attachmentDirectory('product-attachments'),
-            Fields\Tags::make('record.tags')
+            Fields\Tags::make('tags')
                 ->placeholder('Tags'),
             Fields\Fieldset::make()->fields([
-                Fields\File::make('record.image')->image(),
+                Fields\File::make('image')->image(),
             ]),
         ];
     }
@@ -57,9 +58,9 @@ class ProductResource extends Resource
     public static function routes()
     {
         return [
-            ProductResource\ListProducts::route('/', 'index'),
-            ProductResource\CreateProduct::route('/create', 'create'),
-            ProductResource\EditProduct::route('/{record}/edit', 'edit'),
+            Actions\ListProducts::route('/', 'index'),
+            Actions\CreateProduct::route('/create', 'create'),
+            Actions\EditProduct::route('/{record}/edit', 'edit'),
         ];
     }
 }

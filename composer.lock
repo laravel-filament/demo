@@ -822,12 +822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/filament.git",
-                "reference": "3423630b0258ced79993afe84c4c3be351613f41"
+                "reference": "3f7e18745ec173407e1a13fcfbd425425a778c60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/filament/zipball/3423630b0258ced79993afe84c4c3be351613f41",
-                "reference": "3423630b0258ced79993afe84c4c3be351613f41",
+                "url": "https://api.github.com/repos/laravel-filament/filament/zipball/3f7e18745ec173407e1a13fcfbd425425a778c60",
+                "reference": "3f7e18745ec173407e1a13fcfbd425425a778c60",
                 "shasum": ""
             },
             "require": {
@@ -894,7 +894,7 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament/tree/develop"
             },
-            "time": "2021-02-16T10:17:22+00:00"
+            "time": "2021-02-16T12:09:24+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",

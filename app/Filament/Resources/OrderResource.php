@@ -2,11 +2,12 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\OrderResource\Actions;
 use App\Filament\Roles;
 use App\Models;
-use Filament\Forms\Fields;
 use Filament\Resource;
-use Filament\Tables\Columns;
+use Filament\Resources\Columns;
+use Filament\Resources\Fields;
 
 class OrderResource extends Resource
 {
@@ -31,7 +32,7 @@ class OrderResource extends Resource
     public static function fields()
     {
         return [
-            Fields\RichEditor::make('record.notes')
+            Fields\RichEditor::make('notes')
                 ->placeholder('Notes'),
         ];
     }
@@ -39,9 +40,9 @@ class OrderResource extends Resource
     public static function routes()
     {
         return [
-            OrderResource\ListOrders::route('/', 'index'),
-            OrderResource\CreateOrder::route('/create', 'create'),
-            OrderResource\EditOrder::route('/{record}/edit', 'edit'),
+            Actions\ListOrders::route('/', 'index'),
+            Actions\CreateOrder::route('/create', 'create'),
+            Actions\EditOrder::route('/{record}/edit', 'edit'),
         ];
     }
 }

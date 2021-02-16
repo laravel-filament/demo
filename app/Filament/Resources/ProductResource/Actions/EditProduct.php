@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\ProductResource;
+namespace App\Filament\Resources\ProductResource\Actions;
 
 use App\Filament\Resources\ProductResource;
-use Filament\Actions\EditRecord;
+use Filament\Resources\Actions\EditRecord;
 
 class EditProduct extends EditRecord
 {

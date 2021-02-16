@@ -2,11 +2,12 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\CustomerResource\Actions;
 use App\Filament\Roles;
 use App\Models;
-use Filament\Forms\Fields;
 use Filament\Resource;
-use Filament\Tables\Columns;
+use Filament\Resources\Columns;
+use Filament\Resources\Fields;
 
 class CustomerResource extends Resource
 {
@@ -29,7 +30,7 @@ class CustomerResource extends Resource
             Columns\Text::make('email')
                 ->searchable()
                 ->sortable()
-                ->link(fn($customer) => "mailto:$customer->email"),
+                ->url(fn($customer) => "mailto:$customer->email"),
             Columns\Text::make('phone')
                 ->searchable()
                 ->url(fn($customer) => "mailto:$customer->tel"),
@@ -41,7 +42,7 @@ class CustomerResource extends Resource
     {
         return [
             Fields\Fieldset::make()->fields([
-                Fields\Select::make('record.title')
+                Fields\Select::make('title')
                     ->placeholder('Title')
                     ->options([
                         'mr' => 'Mr',
@@ -52,22 +53,22 @@ class CustomerResource extends Resource
                         'dr' => 'Dr',
                         'professor' => 'Professor',
                     ]),
-                Fields\Text::make('record.name')
+                Fields\Text::make('name')
                     ->placeholder('Name')
                     ->autofocus()
                     ->required(),
-                Fields\Text::make('record.email')
+                Fields\Text::make('email')
                     ->label('Email address')
                     ->placeholder('Email address')
                     ->email()
                     ->required()
                     ->only(CustomerResource\CreateUser::class, fn ($field) => $field->unique(Models\Customer::class, 'email'))
                     ->only(CustomerResource\EditUser::class, fn ($field) => $field->unique(Models\Customer::class, 'email', true)),
-                Fields\Text::make('record.phone')
+                Fields\Text::make('phone')
                     ->label('Phone number')
                     ->placeholder('Phone number')
                     ->tel(),
-                Fields\Date::make('record.birthday')
+                Fields\Date::make('birthday')
                     ->placeholder('Birthday'),
             ]),
         ];
@@ -76,9 +77,9 @@ class CustomerResource extends Resource
     public static function routes()
     {
         return [
-            CustomerResource\ListCustomers::route('/', 'index'),
-            CustomerResource\CreateCustomer::route('/create', 'create'),
-            CustomerResource\EditCustomer::route('/{record}/edit', 'edit'),
+            Actions\ListCustomers::route('/', 'index'),
+            Actions\CreateCustomer::route('/create', 'create'),
+            Actions\EditCustomer::route('/{record}/edit', 'edit'),
         ];
     }
 }
