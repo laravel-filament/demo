@@ -8,6 +8,7 @@ use App\Models;
 use Filament\Resource;
 use Filament\Resources\Columns;
 use Filament\Resources\Fields;
+use Filament\Resources\Filter;
 
 class CustomerResource extends Resource
 {
@@ -80,6 +81,13 @@ class CustomerResource extends Resource
                 Fields\Date::make('birthday')
                     ->placeholder('Birthday'),
             ]),
+        ];
+    }
+
+    public static function filters()
+    {
+        return [
+            //
         ];
     }
 

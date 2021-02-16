@@ -61,6 +61,13 @@ class ProductResource extends Resource
         ];
     }
 
+    public static function filters()
+    {
+        return [
+            //
+        ];
+    }
+
     public static function routes()
     {
         return [

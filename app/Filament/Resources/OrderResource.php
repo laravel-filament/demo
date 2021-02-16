@@ -41,6 +41,13 @@ class OrderResource extends Resource
         ];
     }
 
+    public static function filters()
+    {
+        return [
+            //
+        ];
+    }
+
     public static function routes()
     {
         return [
