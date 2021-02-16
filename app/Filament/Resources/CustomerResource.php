@@ -4,9 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Roles;
 use App\Models;
-use Filament\Columns;
-use Filament\Fields;
+use Filament\Forms\Fields;
 use Filament\Resource;
+use Filament\Tables\Columns;
 
 class CustomerResource extends Resource
 {
@@ -24,7 +24,16 @@ class CustomerResource extends Resource
     public static function columns()
     {
         return [
-            //
+            Columns\Text::make('title')->sortable(),
+            Columns\Text::make('name')->searchable()->sortable(),
+            Columns\Text::make('email')
+                ->searchable()
+                ->sortable()
+                ->link(fn($customer) => "mailto:$customer->email"),
+            Columns\Text::make('phone')
+                ->searchable()
+                ->link(fn($customer) => "mailto:$customer->tel"),
+            Columns\Text::make('birthday')->sortable(),
         ];
     }
 

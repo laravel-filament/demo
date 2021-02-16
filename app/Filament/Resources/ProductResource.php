@@ -4,9 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Roles;
 use App\Models;
-use Filament\Columns;
-use Filament\Fields;
+use Filament\Forms\Fields;
 use Filament\Resource;
+use Filament\Tables\Columns;
 
 class ProductResource extends Resource
 {
@@ -24,7 +24,8 @@ class ProductResource extends Resource
     public static function columns()
     {
         return [
-            //
+            Columns\Text::make('name')->searchable()->sortable(),
+            Columns\Text::make('price')->searchable()->sortable(),
         ];
     }
 
