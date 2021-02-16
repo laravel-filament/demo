@@ -15,13 +15,13 @@ class CustomerResource extends Resource
 
     public static $model = Models\Customer::class;
 
-    protected static $titleOptions = [
-        'mr' => 'Mr',
-        'mrs' => 'Mrs',
+    public static $titleOptions = [
+        'mr' => 'Mr.',
+        'mrs' => 'Mrs.',
         'master' => 'Master',
         'miss' => 'Miss',
-        'ms' => 'Ms',
-        'dr' => 'Dr',
+        'ms' => 'Ms.',
+        'dr' => 'Doctor',
         'professor' => 'Professor',
     ];
 
