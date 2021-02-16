@@ -32,7 +32,7 @@ class CustomerResource extends Resource
                 ->link(fn($customer) => "mailto:$customer->email"),
             Columns\Text::make('phone')
                 ->searchable()
-                ->link(fn($customer) => "mailto:$customer->tel"),
+                ->url(fn($customer) => "mailto:$customer->tel"),
             Columns\Text::make('birthday')->sortable(),
         ];
     }
