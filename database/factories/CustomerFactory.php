@@ -26,7 +26,7 @@ class CustomerFactory extends Factory
 
         return [
             'birthday' => $this->faker->date,
-            'email' => $this->faker->email,
+            'email' => $this->faker->unique()->email,
             'name' => "{$this->faker->firstName} {$this->faker->lastName}",
             'phone' => $this->faker->phoneNumber,
             'title' => $titleOptions[rand(0, count($titleOptions) - 1)],
