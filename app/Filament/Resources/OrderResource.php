@@ -30,7 +30,9 @@ class OrderResource extends Resource
                 ->searchable()
                 ->sortable()
                 ->primary(),
-            Columns\Text::make('created_at')->sortable(),
+            Columns\Text::make('created_at')
+                ->sortable()
+                ->dateTime(),
         ];
     }
 
