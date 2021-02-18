@@ -37,6 +37,10 @@ class OrderResource extends Resource
     public static function fields()
     {
         return [
+            Fields\Fieldset::make()->fields([
+                Fields\Select::make('customer_id')
+                    ->relation('customer.name'),
+            ]),
             Fields\RichEditor::make('notes')
                 ->placeholder('Notes'),
         ];
