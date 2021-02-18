@@ -94,9 +94,9 @@ class CustomerResource extends Resource
     public static function routes()
     {
         return [
-            Actions\ListCustomers::route('/', 'index'),
-            Actions\CreateCustomer::route('/create', 'create'),
-            Actions\EditCustomer::route('/{record}/edit', 'edit'),
+            Actions\ListCustomers::registerRoute('/', 'index'),
+            Actions\CreateCustomer::registerRoute('/create', 'create'),
+            Actions\EditCustomer::registerRoute('/{record}/edit', 'edit'),
         ];
     }
 }

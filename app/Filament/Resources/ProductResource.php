@@ -72,9 +72,9 @@ class ProductResource extends Resource
     public static function routes()
     {
         return [
-            Actions\ListProducts::route('/', 'index'),
-            Actions\CreateProduct::route('/create', 'create'),
-            Actions\EditProduct::route('/{record}/edit', 'edit'),
+            Actions\ListProducts::registerRoute('/', 'index'),
+            Actions\CreateProduct::registerRoute('/create', 'create'),
+            Actions\EditProduct::registerRoute('/{record}/edit', 'edit'),
         ];
     }
 }

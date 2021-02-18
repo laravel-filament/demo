@@ -52,9 +52,9 @@ class OrderResource extends Resource
     public static function routes()
     {
         return [
-            Actions\ListOrders::route('/', 'index'),
-            Actions\CreateOrder::route('/create', 'create'),
-            Actions\EditOrder::route('/{record}/edit', 'edit'),
+            Actions\ListOrders::registerRoute('/', 'index'),
+            Actions\CreateOrder::registerRoute('/create', 'create'),
+            Actions\EditOrder::registerRoute('/{record}/edit', 'edit'),
         ];
     }
 }
