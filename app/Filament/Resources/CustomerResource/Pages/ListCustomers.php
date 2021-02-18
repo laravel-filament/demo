@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\CustomerResource\Actions;
+namespace App\Filament\Resources\CustomerResource\Pages;
 
 use App\Filament\Resources\CustomerResource;
-use Filament\Resources\Actions\ListRecords;
+use Filament\Resources\Pages\ListRecords;
 
 class ListCustomers extends ListRecords
 {

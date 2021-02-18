@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\ProductResource\Actions;
+namespace App\Filament\Resources\ProductResource\Pages;
 
 use App\Filament\Resources\ProductResource;
-use Filament\Resources\Actions\CreateRecord;
+use Filament\Resources\Pages\CreateRecord;
 
 class CreateProduct extends CreateRecord
 {

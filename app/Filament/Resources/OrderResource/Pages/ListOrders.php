@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\OrderResource\Actions;
+namespace App\Filament\Resources\OrderResource\Pages;
 
 use App\Filament\Resources\OrderResource;
-use Filament\Resources\Actions\ListRecords;
+use Filament\Resources\Pages\ListRecords;
 
 class ListOrders extends ListRecords
 {

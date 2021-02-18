@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Actions;
+use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Roles;
 use App\Models;
 use Filament\Resource;
@@ -72,9 +72,9 @@ class ProductResource extends Resource
     public static function routes()
     {
         return [
-            Actions\ListProducts::routeTo('/', 'index'),
-            Actions\CreateProduct::routeTo('/create', 'create'),
-            Actions\EditProduct::routeTo('/{record}/edit', 'edit'),
+            Pages\ListProducts::routeTo('/', 'index'),
+            Pages\CreateProduct::routeTo('/create', 'create'),
+            Pages\EditProduct::routeTo('/{record}/edit', 'edit'),
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\OrderResource\Actions;
+use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Roles;
 use App\Models;
 use Filament\Resource;
@@ -52,9 +52,9 @@ class OrderResource extends Resource
     public static function routes()
     {
         return [
-            Actions\ListOrders::routeTo('/', 'index'),
-            Actions\CreateOrder::routeTo('/create', 'create'),
-            Actions\EditOrder::routeTo('/{record}/edit', 'edit'),
+            Pages\ListOrders::routeTo('/', 'index'),
+            Pages\CreateOrder::routeTo('/create', 'create'),
+            Pages\EditOrder::routeTo('/{record}/edit', 'edit'),
         ];
     }
 }

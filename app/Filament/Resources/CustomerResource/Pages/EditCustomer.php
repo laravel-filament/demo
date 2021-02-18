@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources\CustomerResource\Actions;
+namespace App\Filament\Resources\CustomerResource\Pages;
 
 use App\Filament\Resources\CustomerResource;
-use Filament\Resources\Actions\EditRecord;
+use Filament\Resources\Pages\EditRecord;
 
 class EditCustomer extends EditRecord
 {

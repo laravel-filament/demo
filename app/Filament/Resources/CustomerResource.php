@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CustomerResource\Actions;
+use App\Filament\Resources\CustomerResource\Pages;
 use App\Filament\Roles;
 use App\Models;
 use Filament\Resource;
@@ -94,9 +94,9 @@ class CustomerResource extends Resource
     public static function routes()
     {
         return [
-            Actions\ListCustomers::routeTo('/', 'index'),
-            Actions\CreateCustomer::routeTo('/create', 'create'),
-            Actions\EditCustomer::routeTo('/{record}/edit', 'edit'),
+            Pages\ListCustomers::routeTo('/', 'index'),
+            Pages\CreateCustomer::routeTo('/create', 'create'),
+            Pages\EditCustomer::routeTo('/{record}/edit', 'edit'),
         ];
     }
 }
