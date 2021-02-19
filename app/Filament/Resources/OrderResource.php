@@ -41,7 +41,8 @@ class OrderResource extends Resource
         return [
             Fields\Fieldset::make()->fields([
                 Fields\Select::make('customer_id')
-                    ->relation('customer.name'),
+                    ->relation('customer.name')
+                    ->placeholder('Select a customer'),
             ]),
             Fields\RichEditor::make('notes')
                 ->placeholder('Notes'),
