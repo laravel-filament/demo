@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Roles;
-use App\Models;
 use Filament\Resource;
 use Filament\Resources\Columns;
 use Filament\Resources\Fields;
@@ -13,8 +12,6 @@ use Filament\Resources\Filter;
 class OrderResource extends Resource
 {
     public static $icon = 'heroicon-o-currency-dollar';
-
-    public static $model = Models\Order::class;
 
     public static function authorization()
     {

@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Roles;
-use App\Models;
 use Filament\Resource;
 use Filament\Resources\Columns;
 use Filament\Resources\Fields;
@@ -13,8 +12,6 @@ use Filament\Resources\Filter;
 class ProductResource extends Resource
 {
     public static $icon = 'heroicon-o-collection';
-
-    public static $model = Models\Product::class;
 
     public static function authorization()
     {

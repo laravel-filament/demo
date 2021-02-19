@@ -14,8 +14,6 @@ class CustomerResource extends Resource
 {
     public static $icon = 'heroicon-o-user-group';
 
-    public static $model = Models\Customer::class;
-
     public static $titleOptions = [
         'mr' => 'Mr.',
         'mrs' => 'Mrs.',
