@@ -59,7 +59,7 @@ class CustomerResource extends Resource
         return [
             Fields\Fieldset::make()->fields([
                 Fields\Select::make('title')
-                    ->placeholder('Title')
+                    ->placeholder('Select a title')
                     ->options(static::$titleOptions),
                 Fields\Text::make('name')
                     ->placeholder('Name')

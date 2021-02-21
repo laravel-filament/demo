@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
+use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Filament\Roles;
 use Filament\Resource;
 use Filament\Resources\Columns;
@@ -39,8 +40,11 @@ class OrderResource extends Resource
             Fields\Fieldset::make()->fields([
                 Fields\Select::make('customer_id')
                     ->relation('customer.name')
-                    ->placeholder('Select a customer'),
+                    ->placeholder('Select a customer')
+                    ->required(),
             ]),
+            Fields\Relation::make('products')
+                ->manager(RelationManagers\ProductsRelationManager::class),
             Fields\RichEditor::make('notes')
                 ->placeholder('Notes'),
         ];
