@@ -4,10 +4,12 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Roles;
-use Filament\Resource;
-use Filament\Resources\Columns;
-use Filament\Resources\Fields;
-use Filament\Resources\Filter;
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Tables\Columns;
+use Filament\Resources\Tables\Filter;
+use Filament\Resources\Tables\Table;
 
 class ProductResource extends Resource
 {
@@ -20,9 +22,36 @@ class ProductResource extends Resource
         ];
     }
 
-    public static function columns()
-    {
-        return [
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            Components\Fieldset::make()->schema([
+                Components\TextInput::make('name')
+                    ->placeholder('Name')
+                    ->autofocus()
+                    ->required(),
+                Components\TextInput::make('price')
+                    ->placeholder('Price')
+                    ->type('number')
+                    ->min(0)
+                    ->required(),
+            ]),
+            Components\RichEditor::make('description')
+                ->placeholder('Description')
+                ->attachmentDirectory('product-attachments'),
+            Components\TagsInput::make('tags')
+                ->placeholder('Tags'),
+            Components\Fieldset::make()->schema([
+                Components\FileUpload::make('image')->image(),
+            ]),
+        ]);
+}
+
+public static function table(Table $table)
+{
+    return $table
+        ->columns([
             Columns\Text::make('name')
                 ->searchable()
                 ->sortable()
@@ -31,40 +60,8 @@ class ProductResource extends Resource
                 ->searchable()
                 ->sortable()
                 ->currency(),
-        ];
-    }
-
-    public static function fields()
-    {
-        return [
-            Fields\Fieldset::make()->fields([
-                Fields\Text::make('name')
-                    ->placeholder('Name')
-                    ->autofocus()
-                    ->required(),
-                Fields\Text::make('price')
-                    ->placeholder('Price')
-                    ->type('number')
-                    ->min(0)
-                    ->required(),
-            ]),
-            Fields\RichEditor::make('description')
-                ->placeholder('Description')
-                ->attachmentDirectory('product-attachments'),
-            Fields\Tags::make('tags')
-                ->placeholder('Tags'),
-            Fields\Fieldset::make()->fields([
-                Fields\File::make('image')->image(),
-            ]),
-        ];
-    }
-
-    public static function filters()
-    {
-        return [
-            //
-        ];
-    }
+        ]);
+}
 
     public static function routes()
     {

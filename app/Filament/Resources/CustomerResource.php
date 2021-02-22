@@ -4,11 +4,13 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CustomerResource\Pages;
 use App\Filament\Roles;
-use App\Models;
-use Filament\Resource;
-use Filament\Resources\Columns;
-use Filament\Resources\Fields;
-use Filament\Resources\Filter;
+use App\Models\Customer;
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Tables\Columns;
+use Filament\Resources\Tables\Filter;
+use Filament\Resources\Tables\Table;
 
 class CustomerResource extends Resource
 {
@@ -31,62 +33,57 @@ class CustomerResource extends Resource
         ];
     }
 
-    public static function columns()
+    public static function form(Form $form)
     {
-        return [
-            Columns\Text::make('title')
-                ->sortable()
-                ->options(static::$titleOptions),
-            Columns\Text::make('name')
-                ->searchable()
-                ->sortable()
-                ->primary(),
-            Columns\Text::make('email')
-                ->searchable()
-                ->sortable()
-                ->url(fn($customer) => "mailto:$customer->email"),
-            Columns\Text::make('phone')
-                ->searchable()
-                ->url(fn($customer) => "tel:$customer->tel"),
-            Columns\Text::make('birthday')
-                ->sortable()
-                ->date(),
-        ];
+        return $form
+            ->schema([
+                Components\Fieldset::make()->schema([
+                    Components\Select::make('title')
+                        ->placeholder('Select a title')
+                        ->options(static::$titleOptions),
+                    Components\TextInput::make('name')
+                        ->placeholder('Name')
+                        ->autofocus()
+                        ->required(),
+                    Components\TextInput::make('email')
+                        ->label('Email address')
+                        ->placeholder('Email address')
+                        ->email()
+                        ->required()
+                        ->only(Pages\CreateCustomer::class, fn ($field) => $field->unique(Customer::class, 'email'))
+                        ->only(Pages\EditCustomer::class, fn ($field) => $field->unique(Customer::class, 'email', true)),
+                    Components\TextInput::make('phone')
+                        ->label('Phone number')
+                        ->placeholder('Phone number')
+                        ->tel(),
+                    Components\DatePicker::make('birthday')
+                        ->placeholder('Birthday'),
+                ]),
+            ]);
     }
 
-    public static function fields()
+    public static function table(Table $table)
     {
-        return [
-            Fields\Fieldset::make()->fields([
-                Fields\Select::make('title')
-                    ->placeholder('Select a title')
+        return $table
+            ->columns([
+                Columns\Text::make('title')
+                    ->sortable()
                     ->options(static::$titleOptions),
-                Fields\Text::make('name')
-                    ->placeholder('Name')
-                    ->autofocus()
-                    ->required(),
-                Fields\Text::make('email')
-                    ->label('Email address')
-                    ->placeholder('Email address')
-                    ->email()
-                    ->required()
-                    ->only(CustomerResource\CreateUser::class, fn ($field) => $field->unique(Models\Customer::class, 'email'))
-                    ->only(CustomerResource\EditUser::class, fn ($field) => $field->unique(Models\Customer::class, 'email', true)),
-                Fields\Text::make('phone')
-                    ->label('Phone number')
-                    ->placeholder('Phone number')
-                    ->tel(),
-                Fields\Date::make('birthday')
-                    ->placeholder('Birthday'),
-            ]),
-        ];
-    }
-
-    public static function filters()
-    {
-        return [
-            //
-        ];
+                Columns\Text::make('name')
+                    ->searchable()
+                    ->sortable()
+                    ->primary(),
+                Columns\Text::make('email')
+                    ->searchable()
+                    ->sortable()
+                    ->url(fn($customer) => "mailto:$customer->email"),
+                Columns\Text::make('phone')
+                    ->searchable()
+                    ->url(fn($customer) => "tel:$customer->tel"),
+                Columns\Text::make('birthday')
+                    ->sortable()
+                    ->date(),
+            ]);
     }
 
     public static function routes()
