@@ -28,13 +28,11 @@ class OrderResource extends Resource
         return $form
             ->schema([
                 Components\Fieldset::make()->schema([
-                    Components\Select::make('customer_id')
-                        ->relation('customer.name')
+                    Components\BelongsToSelect::make('customer_id')
+                        ->relationship('customer', 'name')
                         ->placeholder('Select a customer')
                         ->required(),
                 ]),
-                Components\RelationManager::make('products')
-                    ->manager(RelationManagers\ProductsRelationManager::class),
                 Components\RichEditor::make('notes')
                     ->placeholder('Notes'),
             ]);
@@ -52,6 +50,13 @@ class OrderResource extends Resource
                     ->sortable()
                     ->dateTime(),
             ]);
+    }
+
+    public static function relations()
+    {
+        return [
+            RelationManagers\ProductsRelationManager::class,
+        ];
     }
 
     public static function routes()

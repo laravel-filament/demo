@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\OrderResource\Forms\RelationManagers;
 
+use App\Filament\Resources\ProductResource;
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
 use Filament\Resources\RelationManager;
@@ -11,14 +12,6 @@ use Filament\Tables\Table;
 
 class ProductsRelationManager extends RelationManager
 {
-    public static $actions = [
-        'add',
-        'create',
-        'delete',
-        'edit',
-        'remove',
-    ];
-
     public static $relationship = 'products';
 
     public static function form(Form $form)

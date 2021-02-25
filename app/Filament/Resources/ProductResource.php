@@ -42,9 +42,7 @@ public static function form(Form $form)
                 ->attachmentDirectory('product-attachments'),
             Components\TagsInput::make('tags')
                 ->placeholder('Tags'),
-            Components\Fieldset::make()->schema([
-                Components\FileUpload::make('image')->image(),
-            ]),
+            Components\FileUpload::make('image')->image(),
         ]);
 }
 
