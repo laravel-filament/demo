@@ -7,5 +7,5 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateOrder extends CreateRecord
 {
-    protected static $resource = OrderResource::class;
+    public static $resource = OrderResource::class;
 }

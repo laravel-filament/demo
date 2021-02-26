@@ -7,5 +7,5 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateProduct extends CreateRecord
 {
-    protected static $resource = ProductResource::class;
+    public static $resource = ProductResource::class;
 }

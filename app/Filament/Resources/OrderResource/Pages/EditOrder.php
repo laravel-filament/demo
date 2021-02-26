@@ -7,5 +7,5 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditOrder extends EditRecord
 {
-    protected static $resource = OrderResource::class;
+    public static $resource = OrderResource::class;
 }

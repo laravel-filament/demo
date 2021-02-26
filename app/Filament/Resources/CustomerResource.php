@@ -37,29 +37,28 @@ class CustomerResource extends Resource
     {
         return $form
             ->schema([
-                Components\Fieldset::make()->schema([
-                    Components\Select::make('title')
-                        ->placeholder('Select a title')
-                        ->options(static::$titleOptions),
-                    Components\TextInput::make('name')
-                        ->placeholder('Name')
-                        ->autofocus()
-                        ->required(),
-                    Components\TextInput::make('email')
-                        ->label('Email address')
-                        ->placeholder('Email address')
-                        ->email()
-                        ->required()
-                        ->only(Pages\CreateCustomer::class, fn ($field) => $field->unique(Customer::class, 'email'))
-                        ->only(Pages\EditCustomer::class, fn ($field) => $field->unique(Customer::class, 'email', true)),
-                    Components\TextInput::make('phone')
-                        ->label('Phone number')
-                        ->placeholder('Phone number')
-                        ->tel(),
-                    Components\DatePicker::make('birthday')
-                        ->placeholder('Birthday'),
-                ]),
-            ]);
+                Components\Select::make('title')
+                    ->placeholder('Select a title')
+                    ->options(static::$titleOptions),
+                Components\TextInput::make('name')
+                    ->placeholder('Name')
+                    ->autofocus()
+                    ->required(),
+                Components\TextInput::make('email')
+                    ->label('Email address')
+                    ->placeholder('Email address')
+                    ->email()
+                    ->required()
+                    ->only(Pages\CreateCustomer::class, fn ($field) => $field->unique(Customer::class, 'email'))
+                    ->only(Pages\EditCustomer::class, fn ($field) => $field->unique(Customer::class, 'email', true)),
+                Components\TextInput::make('phone')
+                    ->label('Phone number')
+                    ->placeholder('Phone number')
+                    ->tel(),
+                Components\DatePicker::make('birthday')
+                    ->placeholder('Birthday'),
+            ])
+            ->columns(2);
     }
 
     public static function table(Table $table)
@@ -76,10 +75,10 @@ class CustomerResource extends Resource
                 Columns\Text::make('email')
                     ->searchable()
                     ->sortable()
-                    ->url(fn($customer) => "mailto:$customer->email"),
+                    ->url(fn ($customer) => "mailto:$customer->email"),
                 Columns\Text::make('phone')
                     ->searchable()
-                    ->url(fn($customer) => "tel:$customer->tel"),
+                    ->url(fn ($customer) => "tel:$customer->tel"),
                 Columns\Text::make('birthday')
                     ->sortable()
                     ->date(),

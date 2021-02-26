@@ -7,5 +7,5 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListProducts extends ListRecords
 {
-    protected static $resource = ProductResource::class;
+    public static $resource = ProductResource::class;
 }

@@ -7,5 +7,5 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditProduct extends EditRecord
 {
-    protected static $resource = ProductResource::class;
+    public static $resource = ProductResource::class;
 }

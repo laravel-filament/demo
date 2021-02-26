@@ -18,7 +18,7 @@ class ProductsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Components\Fieldset::make()->schema([
+                Components\Grid::make([
                     Components\TextInput::make('name')
                         ->placeholder('Name')
                         ->autofocus()

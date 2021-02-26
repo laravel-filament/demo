@@ -27,7 +27,7 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
-                Components\Fieldset::make()->schema([
+                Components\Grid::make([
                     Components\BelongsToSelect::make('customer_id')
                         ->relationship('customer', 'name')
                         ->placeholder('Select a customer')
