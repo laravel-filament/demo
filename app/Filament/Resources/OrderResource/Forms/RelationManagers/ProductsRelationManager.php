@@ -14,12 +14,7 @@ class ProductsRelationManager extends RelationManager
 {
     public static $relationship = 'products';
 
-    // public static $title = 'Related Products';
-
-    public static function getTitle()
-    {
-        return __('Related Products');
-    }
+    public static $title = 'Related Products';
 
     public static function form(Form $form)
     {
