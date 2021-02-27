@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CustomerResource\Pages;
+use App\Filament\Resources\CustomerResource\RelationManagers;
 use App\Filament\Roles;
 use App\Models\Customer;
 use Filament\Resources\Forms\Components;
@@ -49,8 +50,7 @@ class CustomerResource extends Resource
                     ->placeholder('Email address')
                     ->email()
                     ->required()
-                    ->only(Pages\CreateCustomer::class, fn ($field) => $field->unique(Customer::class, 'email'))
-                    ->only(Pages\EditCustomer::class, fn ($field) => $field->unique(Customer::class, 'email', true)),
+                    ->unique(Customer::class, 'email', true),
                 Components\TextInput::make('phone')
                     ->label('Phone number')
                     ->placeholder('Phone number')

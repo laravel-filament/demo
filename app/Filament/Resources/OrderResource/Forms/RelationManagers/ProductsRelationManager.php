@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources\OrderResource\Forms\RelationManagers;
 
-use App\Filament\Resources\ProductResource;
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
 use Filament\Resources\RelationManager;
 use Filament\Resources\Tables\Columns;
 use Filament\Resources\Tables\Filter;
-use Filament\Tables\Table;
+use Filament\Resources\Tables\Table;
 
 class ProductsRelationManager extends RelationManager
 {
@@ -27,8 +26,8 @@ class ProductsRelationManager extends RelationManager
                         ->required(),
                     Components\TextInput::make('price')
                         ->placeholder('Price')
-                        ->type('number')
                         ->min(0)
+                        ->numeric()
                         ->required(),
                 ]),
                 Components\RichEditor::make('description')

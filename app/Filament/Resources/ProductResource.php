@@ -33,8 +33,8 @@ public static function form(Form $form)
                     ->required(),
                 Components\TextInput::make('price')
                     ->placeholder('Price')
-                    ->type('number')
                     ->min(0)
+                    ->numeric()
                     ->required(),
             ]),
             Components\RichEditor::make('description')
