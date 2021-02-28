@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Filament\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          \App\Models\Customer::factory(100)->create();
+        User::factory(100)->create();
     }
 }
