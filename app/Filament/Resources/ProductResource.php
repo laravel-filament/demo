@@ -31,17 +31,12 @@ public static function form(Form $form)
                     ->placeholder('Name')
                     ->autofocus()
                     ->required(),
-                Components\TextInput::make('price')
-                    ->placeholder('Price')
-                    ->min(0)
-                    ->numeric()
-                    ->required(),
+                Components\TagsInput::make('tags')
+                    ->placeholder('Tags'),
             ]),
             Components\RichEditor::make('description')
                 ->placeholder('Description')
                 ->attachmentDirectory('product-attachments'),
-            Components\TagsInput::make('tags')
-                ->placeholder('Tags'),
             Components\FileUpload::make('image')->image(),
         ]);
 }
@@ -54,10 +49,6 @@ public static function table(Table $table)
                 ->searchable()
                 ->sortable()
                 ->primary(),
-            Columns\Text::make('price')
-                ->searchable()
-                ->sortable()
-                ->currency(),
         ]);
 }
 

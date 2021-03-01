@@ -17,7 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
             $table->dateTime('deliver_at')->nullable();
+            $table->string('invoice')->nullable();
             $table->text('notes')->nullable();
+            $table->text('tags')->nullable();
             $table->timestamps();
         });
     }

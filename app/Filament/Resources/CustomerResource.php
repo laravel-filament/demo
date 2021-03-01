@@ -75,10 +75,10 @@ class CustomerResource extends Resource
                 Columns\Text::make('email')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($customer) => "mailto:$customer->email"),
+                    ->url(fn ($customer) => "mailto:{$customer->email}"),
                 Columns\Text::make('phone')
                     ->searchable()
-                    ->url(fn ($customer) => "tel:$customer->tel"),
+                    ->url(fn ($customer) => "tel:{$customer->tel}"),
                 Columns\Text::make('birthday')
                     ->sortable()
                     ->date(),

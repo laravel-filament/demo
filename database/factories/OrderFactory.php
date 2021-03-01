@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Customer;
 use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,8 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'customer_id' => Customer::all()->random()->id,
+            'notes' => $this->faker->randomHtml(1, 1),
         ];
     }
 }

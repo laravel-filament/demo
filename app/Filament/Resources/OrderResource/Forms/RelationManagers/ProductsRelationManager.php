@@ -24,17 +24,12 @@ class ProductsRelationManager extends RelationManager
                         ->placeholder('Name')
                         ->autofocus()
                         ->required(),
-                    Components\TextInput::make('price')
-                        ->placeholder('Price')
-                        ->min(0)
-                        ->numeric()
-                        ->required(),
+                    Components\TagsInput::make('tags')
+                        ->placeholder('Tags'),
                 ]),
                 Components\RichEditor::make('description')
                     ->placeholder('Description')
                     ->attachmentDirectory('product-attachments'),
-                Components\TagsInput::make('tags')
-                    ->placeholder('Tags'),
                 Components\FileUpload::make('image')->image(),
             ]);
     }
@@ -47,10 +42,6 @@ class ProductsRelationManager extends RelationManager
                     ->searchable()
                     ->sortable()
                     ->primary(),
-                Columns\Text::make('price')
-                    ->searchable()
-                    ->sortable()
-                    ->currency(),
             ]);
     }
 }
