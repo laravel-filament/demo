@@ -13,6 +13,8 @@ class ProductsRelationManager extends RelationManager
 {
     public static $relationship = 'products';
 
+    public static $primaryColumn = 'name';
+
     public static $title = 'Related Products';
 
     public static function form(Form $form)
