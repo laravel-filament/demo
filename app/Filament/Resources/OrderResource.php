@@ -27,17 +27,17 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
-Components\Grid::make([
-    Components\BelongsToSelect::make('customer_id')
-        ->relationship('customer', 'name')
-        ->placeholder('Select a customer')
-        ->required(),
-    Components\DateTimePicker::make('deliver_at')
-        ->withoutSeconds(),
-]),
-Components\FileUpload::make('invoice'),
-Components\RichEditor::make('notes')
-    ->placeholder('Notes'),
+                Components\Grid::make([
+                    Components\BelongsToSelect::make('customer_id')
+                        ->relationship('customer', 'name')
+                        ->placeholder('Select a customer')
+                        ->required(),
+                    Components\DateTimePicker::make('deliver_at')
+                        ->withoutSeconds(),
+                ]),
+                Components\FileUpload::make('invoice'),
+                Components\RichEditor::make('notes')
+                    ->placeholder('Notes'),
             ]);
     }
 
