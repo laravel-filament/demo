@@ -35,9 +35,15 @@ class OrderResource extends Resource
                     Components\DateTimePicker::make('deliver_at')
                         ->withoutSeconds(),
                 ]),
-                Components\FileUpload::make('invoice'),
-                Components\RichEditor::make('notes')
-                    ->placeholder('Notes'),
+                Components\Section::make(
+                    'Information',
+                    'Additional order information',
+                    [
+                        Components\FileUpload::make('invoice'),
+                        Components\RichEditor::make('notes')
+                            ->placeholder('Notes'),
+                    ]
+                ),
             ]);
     }
 
