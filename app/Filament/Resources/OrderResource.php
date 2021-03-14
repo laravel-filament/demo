@@ -43,7 +43,7 @@ class OrderResource extends Resource
                         Components\RichEditor::make('notes')
                             ->placeholder('Notes'),
                     ]
-                ),
+                )->collapsed(),
             ]);
     }
 
