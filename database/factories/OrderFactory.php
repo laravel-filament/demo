@@ -23,7 +23,7 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'customer_id' => Customer::all()->random()->id,
+            // 'customer_id' => Customer::pluck('id')->random(),
             'notes' => $this->faker->randomHtml(1, 1),
         ];
     }
