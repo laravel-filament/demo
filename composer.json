@@ -64,7 +64,7 @@
     "repositories": {
         "local": {
             "type": "path",
-            "url": "../filament"
+            "url": "../package"
         }
     }
 }
