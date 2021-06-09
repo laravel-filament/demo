@@ -17,20 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Customer::factory(234)->create();
-        \App\Models\Order::factory(1577)->create();
-        \App\Models\Product::factory(876)->create();
-        User::factory(100)->create();
+        $start = microtime(true);
+        $this->command->info('Start seeding...');
 
-        Order::all()->each(function ($order) {
-            $order->deliver_at = now()->addSeconds(rand(1, 2592000));
-            $order->save();
+        $customers = \App\Models\Customer::factory(234)->create();
 
-            $order->products()->attach(Product::all()->random());
-            $order->products()->attach(Product::all()->random());
-            $order->products()->attach(Product::all()->random());
-            $order->products()->attach(Product::all()->random());
-            $order->products()->attach(Product::all()->random());
+        $customerIds = $customers->pluck('id');
+        $orders = \App\Models\Order::factory(1577)->create([
+            'customer_id' => $customerIds->random(),
+            'deliver_at' => now()->addSeconds(rand(1, 2592000)),
+        ]);
+
+        $products = \App\Models\Product::factory(876)->create();
+
+        $users = User::factory(100)->create();
+
+        $productIds = $products->pluck('id');
+        $orders->each(function ($order) use ($productIds) {
+            $order->products()->attach($productIds->random(5));
         });
+
+        $this->command->info('✔ OK. Took '.microtime(true)-$start.' seconds.');
     }
 }
